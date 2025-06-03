@@ -1,0 +1,85 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9fefb;
+  color: #1b4332;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background-color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.shop-button {
+  background-color: #2d6a4f;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.shop-button:hover {
+  background-color: #1b4332;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Features section */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #e9f5ef;
+}
+.feature {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.feature h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: white;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+}
