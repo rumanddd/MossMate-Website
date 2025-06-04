@@ -1,85 +1,156 @@
+/* Opening Animation Styles */
+.opening-title {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    z-index: 1000;
+    opacity: 0;
+    animation: titleFadeIn 1s ease-in-out 0.5s forwards, 
+               titleMoveUp 1s ease-in-out 2.5s forwards;
+}
+
+.main-content {
+    opacity: 0;
+    animation: contentFadeIn 1s ease-in-out 3s forwards;
+}
+
+@keyframes titleFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes titleMoveUp {
+    from {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        font-size: 4rem;
+        color: white;
+    }
+    to {
+        top: 1rem;
+        left: 2rem;
+        transform: translate(0, 0) scale(1);
+        font-size: 1.8rem;
+        position: absolute;
+        color: #1b4332;
+    }
+}
+
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hide the original header logo during animation */
+.main-content .header .logo {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Show the header logo after animation completes - delayed to avoid overlap */
+.animation-complete .main-content .header .logo {
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
 /* Reset and base styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f9fefb;
-  color: #1b4332;
-  line-height: 1.6;
+font-family: 'Arial', sans-serif;
+background-color: #1b4332;
+color: black;
+line-height: 1.6;
 }
-
 /* Header */
 .header {
-  background-color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+background-color: white;
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
+font-size: 1.8rem;
+font-weight: bold;
+color:#1b4332
 }
 .shop-button {
-  background-color: #2d6a4f;
-  color: white;
-  padding: 0.5rem 1.25rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+background-color: #2d6a4f;
+color: white;
+padding: 0.5rem 1.25rem;
+border: none;
+border-radius: 6px;
+cursor: pointer;
 }
 .shop-button:hover {
-  background-color: #1b4332;
+background-color: #1b4332;
 }
-
 /* Hero section */
 .hero {
-  text-align: center;
-  padding: 3rem 2rem;
+text-align: center;
+padding: 3rem 2rem;
 }
 .hero h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+font-size: 2rem;
+margin-bottom: 0.5rem;
+color: whitesmoke;
 }
 .hero p {
-  max-width: 600px;
-  margin: 0 auto 1.5rem;
+max-width: 600px;
+margin: 0 auto 1.5rem;
+color: whitesmoke;
 }
 .hero-image {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+width: 100%;
+max-width: 500px;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-
 /* Features section */
 .features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  background-color: #e9f5ef;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 1.5rem;
+padding: 2rem;
+background-color: #e9f5ef;
 }
 .feature {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+background-color: white;
+padding: 1rem;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .feature h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+font-size: 1.25rem;
+margin-bottom: 0.5rem;
 }
-
 /* Footer */
 .footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: white;
-  font-size: 0.9rem;
-  border-top: 1px solid #ddd;
+text-align: center;
+padding: 1rem;
+background-color: white;
+font-size: 0.9rem;
+border-top: 1px solid #ddd;
 }
