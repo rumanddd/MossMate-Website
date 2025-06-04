@@ -1,156 +1,195 @@
-/* Opening Animation Styles */
+/* ===== OPENING ANIMATION STYLES ===== */
+
+/* Opening Title - The large "MossMate" text that appears first */
 .opening-title {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 4rem;
-    font-weight: bold;
-    color: white;
-    z-index: 1000;
-    opacity: 0;
+    position: fixed;           /* Stays in place relative to viewport */
+    top: 50%;                 /* Centers vertically */
+    left: 50%;                /* Centers horizontally */
+    transform: translate(-50%, -50%);  /* Perfect centering trick */
+    font-size: 4rem;          /* Large text (4x normal size) */
+    font-weight: bold;        /* Makes text thick/bold */
+    color: white;             /* Starts as white text */
+    z-index: 1000;            /* Appears above everything else */
+    opacity: 0;               /* Starts invisible */
+    /* Two animations: fade in first, then move up */
     animation: titleFadeIn 1s ease-in-out 0.5s forwards, 
                titleMoveUp 1s ease-in-out 2.5s forwards;
 }
 
+/* Main Content Wrapper - All website content starts hidden */
 .main-content {
-    opacity: 0;
+    opacity: 0;               /* Starts invisible */
+    /* Fades in after 3 seconds (after title animation) */
     animation: contentFadeIn 1s ease-in-out 3s forwards;
 }
 
+/* Title Fade In Animation - How the title first appears */
 @keyframes titleFadeIn {
     from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;                              /* Invisible */
+        transform: translate(-50%, -50%) scale(0.8);  /* Slightly smaller */
     }
     to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;                              /* Fully visible */
+        transform: translate(-50%, -50%) scale(1);    /* Normal size */
     }
 }
 
+/* Title Move Up Animation - How title moves to header position */
 @keyframes titleMoveUp {
     from {
-        top: 50%;
-        left: 50%;
+        top: 50%; left: 50%;                    /* Center screen */
         transform: translate(-50%, -50%) scale(1);
-        font-size: 4rem;
-        color: white;
+        font-size: 4rem;                        /* Big text */
+        color: white;                           /* White color */
     }
     to {
-        top: 1rem;
-        left: 2rem;
+        top: 1rem; left: 2rem;                  /* Header position */
         transform: translate(0, 0) scale(1);
-        font-size: 1.8rem;
+        font-size: 1.8rem;                      /* Header size */
         position: absolute;
-        color: #1b4332;
+        color: #1b4332;                         /* Green color */
     }
 }
 
+/* Content Fade In Animation - How main content appears */
 @keyframes contentFadeIn {
     from {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 0;                    /* Invisible */
+        transform: translateY(20px);   /* Slightly below normal position */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1;                    /* Fully visible */
+        transform: translateY(0);      /* Normal position */
     }
 }
 
-/* Hide the original header logo during animation */
+/* Hide Header Logo During Animation - Prevents seeing both logos at once */
 .main-content .header .logo {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    opacity: 0;                       /* Hidden initially */
+    transition: opacity 0.5s ease-in-out;  /* Smooth transition when showing */
 }
 
-/* Show the header logo after animation completes - delayed to avoid overlap */
+/* Show Header Logo After Animation - JavaScript adds 'animation-complete' class */
 .animation-complete .main-content .header .logo {
-    opacity: 1;
-    transition-delay: 0.3s;
+    opacity: 1;                       /* Show the logo */
+    transition-delay: 0.3s;           /* Small delay to avoid overlap */
 }
 
-/* Reset and base styles */
+/* ===== RESET AND BASE STYLES ===== */
+
+/* Universal Reset - Removes default browser spacing and sizing */
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    margin: 0;                        /* Remove default margins */
+    padding: 0;                       /* Remove default padding */
+    box-sizing: border-box;           /* Makes sizing more predictable */
 }
+
+/* Body Styles - Overall page appearance */
 body {
-font-family: 'Arial', sans-serif;
-background-color: #1b4332;
-color: black;
-line-height: 1.6;
+    font-family: 'Arial', sans-serif;  /* Font for entire page */
+    background-color: #1b4332;         /* Dark green background */
+    color: black;                      /* Default text color */
+    line-height: 1.6;                  /* Spacing between lines of text */
 }
-/* Header */
+
+/* ===== HEADER SECTION ===== */
+
+/* Header Container - Top navigation bar */
 .header {
-background-color: white;
-padding: 1rem 2rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;           /* White header bar */
+    padding: 1rem 2rem;               /* Space inside (top/bottom: 1rem, sides: 2rem) */
+    display: flex;                    /* Flexible layout */
+    justify-content: space-between;   /* Logo left, button right */
+    align-items: center;              /* Vertically center items */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow below */
 }
+
+/* Logo Text - "MossMate" brand name */
 .logo {
-font-size: 1.8rem;
-font-weight: bold;
-color:#1b4332
+    font-size: 1.8rem;               /* Size of logo text */
+    font-weight: bold;               /* Bold text weight */
+    color:#1b4332;                   /* Dark green color to match theme */
 }
+
+/* Shop Button - Call-to-action button */
 .shop-button {
-background-color: #2d6a4f;
-color: white;
-padding: 0.5rem 1.25rem;
-border: none;
-border-radius: 6px;
-cursor: pointer;
+    background-color: #2d6a4f;       /* Medium green background */
+    color: white;                    /* White text */
+    padding: 0.5rem 1.25rem;         /* Space inside button (vertical: 0.5rem, horizontal: 1.25rem) */
+    border: none;                    /* No border */
+    border-radius: 6px;              /* Rounded corners */
+    cursor: pointer;                 /* Hand cursor on hover */
 }
+
+/* Shop Button Hover Effect - Darker color when mouse hovers */
 .shop-button:hover {
-background-color: #1b4332;
+    background-color: #1b4332;       /* Darker green when hovering */
 }
-/* Hero section */
+
+/* ===== HERO SECTION ===== */
+
+/* Hero Container - Main promotional area */
 .hero {
-text-align: center;
-padding: 3rem 2rem;
+    text-align: center;              /* Center all content */
+    padding: 3rem 2rem;              /* Space around content (top/bottom: 3rem, sides: 2rem) */
 }
+
+/* Hero Heading - Main headline */
 .hero h2 {
-font-size: 2rem;
-margin-bottom: 0.5rem;
-color: whitesmoke;
+    font-size: 2rem;                 /* Large heading size */
+    margin-bottom: 0.5rem;           /* Space below heading */
+    color: whitesmoke;               /* Light text color (contrasts with dark background) */
 }
+
+/* Hero Paragraph - Descriptive text */
 .hero p {
-max-width: 600px;
-margin: 0 auto 1.5rem;
-color: whitesmoke;
+    max-width: 600px;                /* Don't get too wide on large screens */
+    margin: 0 auto 1.5rem;           /* Center it horizontally with space below */
+    color: whitesmoke;               /* Light text color */
 }
+
+/* Hero Image - Product photo */
 .hero-image {
-width: 100%;
-max-width: 500px;
-border-radius: 12px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 100%;                     /* Full width of container */
+    max-width: 500px;                /* But not bigger than 500px */
+    border-radius: 12px;             /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);  /* Shadow effect for depth */
 }
-/* Features section */
+
+/* ===== FEATURES SECTION ===== */
+
+/* Features Container - Grid layout for feature cards */
 .features {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 1.5rem;
-padding: 2rem;
-background-color: #e9f5ef;
+    display: grid;                   /* CSS Grid layout */
+    /* Responsive columns: minimum 220px wide, fills available space */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;                     /* Space between grid items */
+    padding: 2rem;                   /* Space around entire section */
+    background-color: #e9f5ef;       /* Light green background */
 }
+
+/* Individual Feature Card - Each benefit/feature */
 .feature {
-background-color: white;
-padding: 1rem;
-border-radius: 8px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;         /* White card background */
+    padding: 1rem;                   /* Space inside each card */
+    border-radius: 8px;              /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
 }
+
+/* Feature Headings - Titles for each feature */
 .feature h3 {
-font-size: 1.25rem;
-margin-bottom: 0.5rem;
+    font-size: 1.25rem;              /* Slightly larger than normal text */
+    margin-bottom: 0.5rem;           /* Space below headings */
 }
-/* Footer */
+
+/* ===== FOOTER SECTION ===== */
+
+/* Footer Container - Copyright and legal info */
 .footer {
-text-align: center;
-padding: 1rem;
-background-color: white;
-font-size: 0.9rem;
-border-top: 1px solid #ddd;
+    text-align: center;              /* Center the text */
+    padding: 1rem;                   /* Space around content */
+    background-color: white;         /* White background */
+    font-size: 0.9rem;               /* Slightly smaller text */
+    border-top: 1px solid #ddd;      /* Thin border on top */
 }
